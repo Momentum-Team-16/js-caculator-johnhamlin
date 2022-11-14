@@ -21,6 +21,7 @@ let displayText = '';
 
 function handleClicks(event) {
   let text = event.target.innerText;
+  text = OPERATORS[text] ?? text;
   if (text === 'C') {
     clearDisplay();
     return;
