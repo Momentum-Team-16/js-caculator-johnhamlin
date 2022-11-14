@@ -32,6 +32,8 @@ function handleClicks(event) {
     updateDisplay(result);
     return;
   }
+  // Recover from Errors
+  if (displayText.includes('ERROR')) clearDisplay();
 
   // all buttons except clear and equals
   updateDisplay(text);
