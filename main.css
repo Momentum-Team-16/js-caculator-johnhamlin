@@ -1,0 +1,93 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+/* variables for colors, fonts and sizes. */
+:root {
+  --primary: #64b255;
+  --primary-light: #83c178;
+  --white: #fdfdfd;
+  --black: #030303;
+  --font-size: 8vh;
+  --sans: 'Work Sans', sans-serif;
+}
+
+/* border box model: https://css-tricks.com/box-sizing/ */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Disable smooth scrolling when users have prefers-reduced-motion enabled
+ */
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html,
+body {
+  /* Settings pulled from stack overflow https://stackoverflow.com/questions/90178/make-a-div-fill-the-height-of-the-remaining-screen-space */
+  height: 100%;
+  margin: 0;
+  background-color: var(--white);
+  font-family: var(--sans);
+  /* font-weight: 100; */
+}
+
+.calculator {
+  height: 95%;
+  font-size: var(--font-size);
+  max-width: 80%;
+  margin: 2rem auto;
+  /* background-color: var(--green); */
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.display {
+  color: var(--white);
+  grid-column: span 3;
+  max-width: 100%;
+  min-width: 0;
+
+  background-color: var(--primary);
+  padding-right: 2rem;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.btn {
+  background-color: var(--primary);
+  color: var(--white);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn.operator {
+  color: var(--black);
+  background-color: var(--primary-light);
+}
+
+/* Hover Effects for Buttons */
+.clear:hover,
+.equals:hover {
+  background-color: var(--primary-light);
+}
+
+.btn.btn.operator:hover {
+  color: var(--white);
+}
