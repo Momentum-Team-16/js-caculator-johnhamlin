@@ -21,17 +21,27 @@ let displayText = '';
 
 function handleClicks(event) {
   let text = event.target.innerText;
+
+  // normalize input
   text = OPERATORS[text] ?? text;
+
+  // clear display
   if (text === 'C') {
     clearDisplay();
     return;
   }
+
+  // calculate result
   if (text === '=') {
     let result = calculateResult(displayText);
     clearDisplay();
     updateDisplay(result);
     return;
   }
+
+  // add leading zero to decimal input
+  if (text === '.' && displayText === '') text = '0.1';
+
   // Recover from Errors
   if (displayText.includes('ERROR')) clearDisplay();
 

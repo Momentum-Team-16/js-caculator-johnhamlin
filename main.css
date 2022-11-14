@@ -49,13 +49,15 @@ body {
   /* background-color: var(--green); */
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
 }
 
 .display {
   color: var(--white);
   grid-column: span 3;
+  max-width: 100%;
+  min-width: 0;
 
   background-color: var(--primary);
   padding-right: 2rem;
@@ -72,6 +74,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .btn.operator {
