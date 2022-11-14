@@ -54,8 +54,11 @@ function renderDisplay() {
 }
 
 function calculateResult(text) {
-  // TODO: Handle Errors
-  return math.evaluate(text);
+  try {
+    return math.evaluate(text);
+  } catch (error) {
+    return 'ERROR';
+  }
 }
 
 // MAIN
