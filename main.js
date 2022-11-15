@@ -86,6 +86,9 @@ function handleInput(input) {
   // prevent multiple operators entered in a row
   if (OPERATORS[input] && OPERATORS[displayText.at(-1)]) return;
 
+  // prevent inputting an operator as the first value
+  if (OPERATORS[input] && displayText === '') return;
+
   // add leading zero to decimal input
   if (input === '.' && displayText === '') input = '0.1';
 
@@ -109,7 +112,6 @@ function updateDisplay(text) {
 }
 
 function clearDisplay() {
-  resultCalculated = false;
   displayText = '';
   renderDisplay();
 }
@@ -120,7 +122,6 @@ function renderDisplay() {
 }
 
 function calculateResult(text) {
-  resultCalculated = true;
   try {
     return math.evaluate(text);
   } catch (error) {
