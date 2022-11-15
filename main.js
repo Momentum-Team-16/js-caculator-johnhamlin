@@ -93,10 +93,10 @@ function handleInput(input) {
   if (displayText.includes('ERROR')) clearDisplay();
 
   // prevent adding more numbers to an old result
-  if (displayText !== '' && !OPERATORS[input] && resultCalculated) {
-    console.log('here');
-    clearDisplay();
-  }
+  // if (displayText !== '' && !OPERATORS[input] && resultCalculated) {
+  //   console.log('here');
+  //   clearDisplay();
+  // }
 
   // Otherwise, just add the value to the display
   updateDisplay(input);
